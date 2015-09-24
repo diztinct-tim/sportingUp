@@ -4234,31 +4234,98 @@ img.mfp-img {
 
 
 
-// DIZTINCT MOBILE FIRST CSS 
+// DIZTINCT DESKTOP FIRST CSS 
 
-/* Custom, iPhone Retina */ 
-@media only screen and (min-width : 320px) {
-    
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Oswald', sans-serif;
 
 
-}
+/* Giant Screens */
+@media only screen and (max-width : 2800px) {
 
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
+    a:hover{
+      text-decoration: underline;
+    }
+    .site-header {
+      padding: 0px;
+    }
+    .top-mobile-link{
+      background-color:#f2f2f2;
+      height:42px;
+    }
+    .top-mobile-link > .wrapper > ul{
+      margin-top:4px;
+      float:right;
+    }
+    .top-mobile-link > .wrapper > ul > li{
+      display:inline;
+    }
+    .top-mobile-link > .wrapper > ul > li > a{
+      font-family:'Roboto', sans-serif;
+      font-weight:500;
+      color:#282828;
+      padding:0px 15px;
+      border-right:1px solid #999;
+      font-size:14px;
+    }
+    .top-mobile-link > .wrapper > ul > li:last-child > a{
+      border-right:none;
+      padding-right:0px;
+    }
+    img.cart-img{
+      position:relative;
+      top:5px;
+      height:22px;
+      width:auto;
+    }
+    .cart-count{
+      background-color:#f50000;
+      margin-left:3px;
+      height:23px;
+      width:23px;
+      border-radius:50%;
+      position:relative;
+      line-height:24px;
+      color:#fff;
+      top: -1px;
+    }
+    #accessibleNav > li > a {
+      font-family: "Roboto";
+      font-weight: 700;
+    }
 
-}
 
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
 
-}
 
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
+
+
 
 }
 
 /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
+@media only screen and (max-width : 1200px) {
 
+
+
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    
 }

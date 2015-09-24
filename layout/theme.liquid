@@ -56,12 +56,28 @@
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
 
+  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
   <header class="site-header" role="banner">
-    <div class="wrapper">
+
+    <div class="top-mobile-link">
+      <div class="wrapper">
+        <ul>
+          <li><a href="">Blog</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Account</a></li>
+          <li><a href=""><img class="cart-img" src="{{ 'cart_03.png' | asset_url }}"><span class="cart-count desk-cart">{{ cart.item_count }}</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrapper header-wrap">
 
       <div class="grid--full">
         <div class="grid-item large--one-half">
@@ -122,12 +138,12 @@
     </div>
   </header>
 
-<!--   <nav class="nav-bar" role="navigation">
+  <nav class="nav-bar" role="navigation">
     <div class="wrapper">
       {% include 'search-bar' %}
       {% include 'site-nav' %}
     </div>
-  </nav> -->
+  </nav>
 
   <div id="mobileNavBar">
     <div class="display-table-cell">
@@ -181,82 +197,11 @@
               {% endif %}
             </p>
           {% endif %}
-          {% if settings.footer_social_enable %}
-            <ul class="inline-list social-icons">
-              {% if settings.social_twitter_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Twitter' | escape }}">
-                    <span class="icon icon-twitter" aria-hidden="true"></span>
-                    <span class="fallback-text">Twitter</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_facebook_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Facebook' | escape }}">
-                    <span class="icon icon-facebook" aria-hidden="true"></span>
-                    <span class="fallback-text">Facebook</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_pinterest_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Pinterest' | escape }}">
-                    <span class="icon icon-pinterest" aria-hidden="true"></span>
-                    <span class="fallback-text">Pinterest</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_google_plus_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_google_plus_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Google' | escape }}" rel="publisher">
-                    <span class="icon icon-google" aria-hidden="true"></span>
-                    <span class="fallback-text">Google</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_instagram_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Instagram' | escape }}">
-                    <span class="icon icon-instagram" aria-hidden="true"></span>
-                    <span class="fallback-text">Instagram</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_tumblr_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Tumblr' | escape }}">
-                    <span class="icon icon-tumblr" aria-hidden="true"></span>
-                    <span class="fallback-text">Tumblr</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_youtube_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'YouTube' | escape }}">
-                    <span class="icon icon-youtube" aria-hidden="true"></span>
-                    <span class="fallback-text">YouTube</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_vimeo_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Vimeo' | escape }}">
-                    <span class="icon icon-vimeo" aria-hidden="true"></span>
-                    <span class="fallback-text">Vimeo</span>
-                  </a>
-                </li>
-              {% endif %}
-              {% if settings.social_fancy_link != blank %}
-                <li>
-                  <a class="icon-fallback-text" href="{{ settings.social_fancy_link }}" title="{{ 'layout.footer.store_on_social_network' | t: store_name: shop.name, social_network: 'Fancy' | escape }}">
-                    <span class="icon icon-fancy" aria-hidden="true"></span>
-                    <span class="fallback-text">Fancy</span>
-                  </a>
-                </li>
-              {% endif %}
-            </ul>
-          {% endif %}
+
+        <div class="social-media-footer">
+          
+        </div>
+
         </div>
         {% endif %}
 
