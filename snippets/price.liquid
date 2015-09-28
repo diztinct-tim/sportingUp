@@ -13,9 +13,9 @@
 {% unless shop.money_format contains 'money' %}
   {% if settings.superscript_decimals %}
     {% if shop.money_format contains '{{amount}}' %}
-      {% capture formatted_price %}{{ formatted_price | replace: '.','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price %}${{ formatted_price }}{% endcapture %}
     {% elsif shop.money_format contains '{{amount_with_comma_separator}}' %}
-      {% capture formatted_price %}{{ formatted_price | replace: ',','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price %}${{ formatted_price }}{% endcapture %}
     {% endif %}
   {% endif %}
 {% endunless %}

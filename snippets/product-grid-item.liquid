@@ -1,5 +1,5 @@
 {% unless grid_item_width %}
-  {% assign grid_item_width = 'large--one-quarter medium-down--one-half' %}
+  {% assign grid_item_width = 'large--one-third medium-down--one-half' %}
 {% endunless %}
 
 {% unless current_collection %}
@@ -49,9 +49,6 @@
       {% endif %}
     </div>
 
-    {% if settings.product_reviews_enable %}
-      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-    {% endif %}
   </a>
 
 </div>

@@ -7,6 +7,12 @@
   {% assign has_sidebar = true %}
 {% endif %}
 
+<h1 class="section-header--title">{{ collection.title }}</h1>
+
+<div class="mobile-filters">    
+  {% include 'toggle-filters' %}
+</div>
+
 <div class="grid grid-border">
 
   {% if has_sidebar %}
@@ -20,9 +26,9 @@
     {% comment %}
       Different markup if description is set
     {% endcomment %}
+
     {% if collection.description != blank %}
       <header class="section-header">
-        <h1 class="section-header--title">{{ collection.title }}</h1>
         <div class="rte rte--header">
           {{ collection.description }}
         </div>
@@ -31,17 +37,14 @@
       <div class="section-header">
         <div class="section-header--right">
           {% include 'collection-sorting' %}
-          {% include 'collection-views' %}
-          {% include 'toggle-filters' %}
+
         </div>
       </div>
     {% else %}
     <header class="section-header">
-      <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
       <div class="section-header--right">
         {% include 'collection-sorting' %}
-        {% include 'collection-views' %}
-        {% include 'toggle-filters' %}
+
       </div>
     </header>
     {% endif %}
@@ -51,9 +54,9 @@
       {% for product in collection.products %}
         
         {% if has_sidebar %}
-          {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
+          {% assign grid_item_width = 'large--one-third medium--one-half small--one-half' %}
         {% else %}
-          {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+          {% assign grid_item_width = 'large--one-third medium--one-half small--one-half' %}
         {% endif %}
         {% include 'product-grid-item' %}
 

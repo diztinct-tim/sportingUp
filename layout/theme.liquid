@@ -56,11 +56,13 @@
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
 
+  <!-- DIZTINCT GOOGLE FONTS -->
   <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 
 </head>
+
+
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
@@ -72,6 +74,13 @@
           <li><a href="">Blog</a></li>
           <li><a href="">Contact</a></li>
           <li><a href="">Account</a></li>
+              <ul class="account-dd">
+                <li><a href="">Login or Register</a></li>
+                <li><a href="">My Account</a></li>
+                <li><a href="">Order Status</a></li>
+                <li><a href="">Shopping Cart</a></li>
+              </ul>
+
           <li><a href=""><img class="cart-img" src="{{ 'cart_03.png' | asset_url }}"><span class="cart-count desk-cart">{{ cart.item_count }}</span></a></li>
         </ul>
       </div>
@@ -100,7 +109,13 @@
           {% endif %}
         </div>
 
-        <div class="grid-item large--one-half text-center large--text-right">
+        <div class="mobile-logo">
+          <a href="/">
+            <img src="{{ 'mobile_logo_13.png' | asset_url }}">
+          </a>
+        </div>
+
+        <div class="grid-item large--one-half text-center large--text-right shipping-promo-grid">
           {% if settings.header_message != blank or shop.customer_accounts_enabled %}
             <div class="site-header--text-links{% if settings.header_message == blank %} medium-down--hide{% endif %}">
               {% if settings.header_message != blank %}
@@ -126,12 +141,21 @@
             <br class="medium-down--hide">
           {% endif %}
 
+          <div class="shipping-promo">
+            <p class="desk-ship-promo"><img src="{{ 'header-shipping-box_03.png' | asset_url }}" alt="Shipping Box">FREE SHIPPING ON ORDERS $35 OR MORE!</p>
+            <p class="mobile-ship-promo"><img src="{{ 'header-shipping-box_03.png' | asset_url }}" alt="Shipping Box">FREE SHIPPING OVER 35!
+            
+            </p>
+
+          </div>
+
           {% include 'search-bar' %}
 
-          <a href="/cart" class="header-cart-btn cart-toggle">
+          <!-- <a href="/cart" class="header-cart-btn cart-toggle">
             <span class="icon icon-cart"></span>
             {{ 'layout.cart.cart' | t }} <span class="cart-count cart-badge--desktop {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
-          </a>
+          </a> -->
+
         </div>
       </div>
 
@@ -145,23 +169,55 @@
     </div>
   </nav>
 
-  <div id="mobileNavBar">
+<!--   <div id="mobileNavBar">
     <div class="display-table-cell">
-      <a class="menu-toggle mobileNavBar-link">{{ 'layout.navigation.mobile_menu' | t }}</a>
+      <a class="menu-toggle mobileNavBar-link">MENU</a>
     </div>
-    <div class="display-table-cell">
-      <a href="/cart" class="cart-toggle mobileNavBar-link">
-        <span class="icon icon-cart"></span>
-        {{ 'layout.cart.cart' | t }} <span class="cart-count {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
-      </a>
+    
+  </div> -->
+
+  <div class="diztinct-mobile-nav">
+    <div class="wrapper">
+      <a class="click-me-nav"><span class="menu-text">MENU</span></a>
+      {% include 'site-nav' %}  
     </div>
   </div>
 
-  <main class="wrapper main-content" role="main">
+  <div class="background-image">
 
-    {{ content_for_layout }}
+    <main class="wrapper main-content" role="main">
 
-  </main>
+      {{ content_for_layout }}
+
+    </main>
+    
+  </div>
+
+<script>
+  
+  $(function(){
+    $("a.click-me-nav").on("click", function(){
+      $(".diztinct-mobile-nav > .wrapper > ul#accessibleNav").toggleClass('show-me');
+      $("span.menu-text").toggleClass("open-nav");
+    })
+
+    $("a.click-me-dropdown").on("click", function(e){
+      e.stopPropagation();
+      $("account-dd").toggleClass("open");
+    })
+
+
+
+  })
+
+</script>
+
+
+
+
+
+
+
 
   {% capture theme_settings_link %}<a href="/admin/themes/{{ theme.id }}/settings">{{ 'layout.footer.theme_settings' | t }}</a>{% endcapture %}
 
@@ -171,85 +227,97 @@
 
       <div class="grid">
 
-        {% if settings.footer_quicklinks_enable %}
-          <div class="grid-item medium--one-half large--three-twelfths">
-            <h3>{{ 'layout.footer.quick_links' | t }}</h3>
+          <div class="top-footer cf">
+            
+            <div class="left-footer">
+              <img src="{{ 'footer-img_31.png' | asset_url }}">
+              <h4>Our Mission</h4>
+              <p>To value every customer as part of the Sporting Up family ensuring the highest level of customer service and value no matter how large or small the order.</p>
+            </div>
+
+            <div class="right-footer">
+
+              <div class="top-right-footer">
+                {% if settings.footer_newsletter_enable %}
+                  <div class="">
+                    <h3>10% OFF YOUR FIRST ORDER!</h3>
+                    <p>Join our newsletter & receive 10% off your first order!</p>
+                    {% include 'newsletter-form' %}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="lower-right-footer">
+                <h4>JOIN OUR CUSTOMER LOYALTY PROGRAM</h4>
+                <p>Earn points with every purchase, redeem for savings.</p>
+                
+                <div class="black-box">
+                  <span class="sign-up"><a href="">SIGN UP</a></span>
+                  <span class="or">or</span>
+                  <span class="log-in"><a href="">LOGIN</a></span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="footer-columns cf">
             <ul>
-              {% for link in linklists[settings.footer_quicklinks_linklist].links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% else %}
-                {% capture theme_settings_footer_linklist_path %}<strong>Footer</strong> > <strong>Quick links link list</strong>{% endcapture %}
-                {{ 'layout.footer.instructions_for_linklist_html' | t: theme_settings_link: theme_settings_link, theme_settings_footer_linklist_path: theme_settings_footer_linklist_path }}
-              {% endfor %}
+              <h4>OUR GUARANTEE</h4>
+              <li><a href="">Ships free over $35</a></li>
+              <li><a href="">100% Satisfaction</a></li>
+              <li><a href="">Secure Checkout</a></li>
+              <li><a href="">5 Star Service</a></li>
+              <li><a href="">Customer Loyalty</a></li>
+            </ul>
+
+            <ul>
+              <h4>COMPANY INFO</h4>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">FAQ's</a></li>
+              <li><a href="">Policy Info</a></li>
+            </ul>
+
+            <ul>
+              <h4>MY SPORTING UP</h4>
+              <li><a href="">Login or Register</a></li>
+              <li><a href="">My Account</a></li>
+              <li><a href="">Order Status</a></li>
+              <li><a href="">Shopping Cart</a></li>
+              <li><a href="">Shipping & Returns</a></li>
+            </ul>
+
+            <ul>
+              <h4>CONNECT WITH US</h4>
+              <li class="fb"><a href=""><span class="fb-img"></span>Facebook</a></li>
+              <li class="twit"><a href=""><span class="twit-img"></span>Twitter</a></li>
+              <li class="gram"><a href=""><span class="gram-img"></span>Instagram</a></li>
+              <li class="pin"><a href=""><span class="pin-img"></span>Pinterest</a></li>
+              <li class="blog"><a href=""><span class="blog-img"></span>SportingUp Blog</a></li>
             </ul>
           </div>
-        {% endif %}
 
-        {% if settings.footer_content_enable or settings.footer_social_enable %}
-        <div class="grid-item medium--one-half large--five-twelfths">
-          <h3>{{ 'layout.footer.get_in_touch' | t }}</h3>
-          {% if settings.footer_content_enable %}
-            <p>
-              {% if settings.footer_content_text != blank %}
-                {{ settings.footer_content_text }}
-              {% else %}
-                {{ 'layout.footer.instructions_for_text_content_html' | t: theme_settings_link: theme_settings_link }}
-              {% endif %}
-            </p>
-          {% endif %}
-
-        <div class="social-media-footer">
-          
-        </div>
-
-        </div>
-        {% endif %}
-
-        {% if settings.footer_newsletter_enable %}
-        <div class="grid-item large--one-third">
-          <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
-          {% include 'newsletter-form' %}
-        </div>
-        {% endif %}
-      </div>
-
-      <hr class="hr--small">
-
-      <div class="grid">
-        <div class="grid-item{% unless shop.enabled_payment_types == empty %} large--two-fifths{% endunless %}">
-          {% if settings.footer_legallinks_enable %}
-            <ul class="legal-links inline-list">
-              {% for link in linklists[settings.footer_legallinks_linklist].links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-          <ul class="legal-links inline-list">
-            <li>
-              &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}
-            </li>
-            <li>
-              {{ powered_by_link }}
-            </li>
+        <div class="payment-icons cf">
+          <ul>
+            <li><img src="{{ 'payment-icons_06.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_08.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_10.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_12.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_14.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_16.png' | asset_url }}"></li>
+            <li><img src="{{ 'payment-icons_18.png' | asset_url }}"></li>
           </ul>
         </div>
+        <div class="copyright">
+          <p><img src="{{ 'hat-icon_03.png' | asset_url }}" />2015 Sporting Up Inc. All Rights Reserved.</p>
+          <p><a href="http://www.diztinct.com/" target="_blank">Custom Shopify Design</a> by Diztinct.com</p>
+        </div>
 
-        {% unless shop.enabled_payment_types == empty %}
-          <div class="grid-item large--three-fifths large--text-right">
-            <ul class="inline-list payment-icons">
-              {% for type in shop.enabled_payment_types %}
-                <li>
-                  <span class="icon-fallback-text">
-                    <span class="icon icon-{{ type }}" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
-                  </span>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endunless %}
 
       </div>
+
 
     </div>
 
