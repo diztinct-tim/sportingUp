@@ -4554,7 +4554,8 @@ html, body{
       width:calc(50% - 10px);
       background-color:#282828;
       float:left;
-      margin:60px 0px;
+      margin: 60px 0px 30px 0px;
+      padding: 0px 0px 30px 0px;
     }
     div.right-footer{
       width:calc(50% - 10px);
@@ -4595,7 +4596,7 @@ html, body{
       font-family: "Oswald";
       font-size: 24px;
       text-align: center;
-      padding: 45px 0px 0px;
+      padding: 25px 0px 0px;
       letter-spacing: 1px;
     }
     .top-right-footer{
@@ -5149,6 +5150,41 @@ html, body{
     height:0px;
     width:0px;
   }
+  .left-footer, .right-footer {
+      height: 500px;
+      background-color: #282828;
+  }
+  .top-right-footer {
+    border-bottom: 20px solid #141414;
+    padding-bottom: 25px;
+  }
+  #productPrice:before{
+    content:"$";
+    margin-right: -5px;
+  }
+  #comparePrice.sale-tag {
+    border: none;
+    text-transform: capitalize;
+    font-weight: normal;
+    color: #d50000;
+    font-family: "Roboto";
+    margin-bottom: -2px;
+  }
+  .product-meta li, .product-meta .product-meta--review {
+    display: block;
+  }
+  .retailPriceGray{
+    color:#767676;
+  }
+  .social-sharing .icon {
+    padding: 0px 0px 0px 3px;
+  }
+  .social-sharing a{
+    margin-right:0px;
+  }
+  .share-title{
+    padding-right:3px;
+  }
 
 
 
@@ -5588,6 +5624,41 @@ html, body{
   #collectionFilters > div.grid-uniform > .grid-item.small--one-half.medium--one-third{
     width:100%;
   }
+  .left-footer, .right-footer {
+    height: auto;
+  }
+  .prod-page-left{
+    width:100%;
+  }
+  .prod-page-right{
+    width:100%;
+  }
+  .shop-with-confidence ul li {
+    width: 49%;
+    margin:0px 0px 20px 0px;
+  }
+  .shop-with-confidence h2{
+    font-size:24px;
+  }
+  .shop-with-confidence h5, .shop-with-confidence .h5{
+    font-size:16px;
+  }
+  .shop-with-confidence{
+    margin-left: -15px;
+    width: calc(100% + 30px);
+  }
+  .related-prods-header{
+    font-size:24px;
+  }
+  .product-top > h2{
+    font-size:24px;
+  }
+  .item-details li{
+    display:block;
+  }
+  .related-prods > div.grid-item {
+    width: 50%;
+  }
 
 
 
@@ -5662,6 +5733,24 @@ html, body{
     display:inline !important;
     margin-top:10px;
   }
+  .pagination-custom > li > a, .pagination-custom > li > span {
+    border-color: #CCC;
+    padding: 7px 12px;
+  }
+  .shop-with-confidence ul li {
+    width: 100%;
+    margin: 0px 0px 25px 0px;
+  }
+  .related-prods > div.grid-item {
+    width: 100%;
+  }
+  .breadcrumb a, .breadcrumb span, .breadcrumb .divider {
+    padding: 7px 7px 0px 0px !important;
+  }
+
+
+
+
 
 
 
@@ -5695,6 +5784,8 @@ html, body{
 
 
 
+
+
 }
 
 
@@ -5708,6 +5799,7 @@ html, body{
   span.menu-text.open-nav:before{
     left:31%;
   }
+  
 
 
 

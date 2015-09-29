@@ -71,15 +71,29 @@
     <div class="top-mobile-link">
       <div class="wrapper">
         <ul>
-          <li><a href="">Blog</a></li>
-          <li><a href="">Contact</a></li>
-          <li><a href="">Account</a></li>
+          <li><a href="/pages/blog">Blog</a></li>
+          <li><a href="/pages/contact-us">Contact</a></li>
+          
+          <li><a href="">Account</a>
               <ul class="account-dd">
-                <li><a href="">Login or Register</a></li>
+                <li>
+                  {% if shop.customer_accounts_enabled %}
+                      {% if customer  %}
+                          <a href="/account">Your Account</a>
+                      {% else %}
+                          {{ 'Log in' | customer_login_link }}
+                          {% if shop.customer_accounts_optional %}
+                              <span>or</span>
+                              {{ 'Create an account' | customer_register_link }}
+                          {% endif %}
+                      {% endif %}
+                  {% endif %}
+                </li>
                 <li><a href="">My Account</a></li>
                 <li><a href="">Order Status</a></li>
                 <li><a href="">Shopping Cart</a></li>
               </ul>
+          </li>
 
           <li><a href=""><img class="cart-img" src="{{ 'cart_03.png' | asset_url }}"><span class="cart-count desk-cart">{{ cart.item_count }}</span></a></li>
         </ul>
@@ -229,33 +243,36 @@
 
           <div class="top-footer cf">
             
-            <div class="left-footer">
-              <img src="{{ 'footer-img_31.png' | asset_url }}">
-              <h4>Our Mission</h4>
-              <p>To value every customer as part of the Sporting Up family ensuring the highest level of customer service and value no matter how large or small the order.</p>
-            </div>
+            <div class="footer-box">
 
-            <div class="right-footer">
-
-              <div class="top-right-footer">
-                {% if settings.footer_newsletter_enable %}
-                  <div class="">
-                    <h3>10% OFF YOUR FIRST ORDER!</h3>
-                    <p>Join our newsletter & receive 10% off your first order!</p>
-                    {% include 'newsletter-form' %}
-                  </div>
-                {% endif %}
+              <div class="left-footer">
+                <img src="{{ 'footer-img_31.png' | asset_url }}">
+                <h4>Our Mission</h4>
+                <p>To value every customer as part of the Sporting Up family ensuring the highest level of customer service and value no matter how large or small the order.</p>
               </div>
-              <div class="lower-right-footer">
-                <h4>JOIN OUR CUSTOMER LOYALTY PROGRAM</h4>
-                <p>Earn points with every purchase, redeem for savings.</p>
-                
-                <div class="black-box">
-                  <span class="sign-up"><a href="">SIGN UP</a></span>
-                  <span class="or">or</span>
-                  <span class="log-in"><a href="">LOGIN</a></span>
-                </div>
 
+              <div class="right-footer">
+
+                <div class="top-right-footer">
+                  {% if settings.footer_newsletter_enable %}
+                    <div class="">
+                      <h3>10% OFF YOUR FIRST ORDER!</h3>
+                      <p>Join our newsletter & receive 10% off your first order!</p>
+                      {% include 'newsletter-form' %}
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="lower-right-footer">
+                  <h4>JOIN OUR CUSTOMER LOYALTY PROGRAM</h4>
+                  <p>Earn points with every purchase, redeem for savings.</p>
+                  
+                  <div class="black-box">
+                    <span class="sign-up"><a href="">SIGN UP</a></span>
+                    <span class="or">or</span>
+                    <span class="log-in"><a href="">LOGIN</a></span>
+                  </div>
+
+                </div>
               </div>
 
             </div>
@@ -274,10 +291,10 @@
 
             <ul>
               <h4>COMPANY INFO</h4>
-              <li><a href="/about-us/">About Us</a></li>
-              <li><a href="/contact-us/">Contact Us</a></li>
-              <li><a href="/faqs/">FAQ's</a></li>
-              <li><a href="/policy-info/">Policy Info</a></li>
+              <li><a href="/pages/about-us">About Us</a></li>
+              <li><a href="/pages/contact-us">Contact Us</a></li>
+              <li><a href="/pages/faqs">FAQ's</a></li>
+              <li><a href="/pages/policy-info">Policy Info</a></li>
             </ul>
 
             <ul>
@@ -352,6 +369,15 @@
       enableQtySelectors: true
     });
   });
+
+  $(".search-bar").val("Search");
+  $(".search-bar").on("focus", function(){
+    $(".search-bar").val("");
+  });
+  $(".search-bar").on("blur", function(){
+    $(".search-bar").val("Search");
+  });
+
   </script>
 {% endif %}
 

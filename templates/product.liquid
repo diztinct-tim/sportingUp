@@ -13,7 +13,7 @@
         <ul class="item-details">
           <li><span>Brand:</span> {{ product.vendor }}</li>
           <li><span>SKU:</span> {{ product.variants.first.sku }}</li>
-          <li><span>Shipping:</span></li>
+          <li><span>Shipping:</span> Ships in 1-2 business days.</li>
         </ul>
 
       {% if settings.social_sharing_products %}
@@ -63,6 +63,9 @@
       <meta itemprop="priceCurrency" content="{{ shop.currency }}">
       <meta itemprop="price" content="{{ variant.price | money }}">
 
+
+
+
       {% if settings.product_vendor_enable %}
         <p class="product-meta" itemprop="brand">{{ product.vendor }}</p>
       {% endif %}
@@ -81,6 +84,7 @@
 
               <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
 
+
             {% else %}
               <option disabled="disabled">
                 {{ variant.title }} - {{ 'products.product.sold_out' | t }}
@@ -96,6 +100,7 @@
 
 
         <ul class="inline-list product-meta">
+
         <li>
           <span id="productPrice" class="h1">
             {% include 'price' with variant.price variant.compare_at_price%}
@@ -104,16 +109,21 @@
         </li>
         {% if product.compare_at_price_max > product.price %}
         <li>
+        <span class="retailPriceGray">Retail <strike>{% if variant.price < variant.compare_at_price %} {{ variant.compare_at_price | money }}{% endif %}</strike></span>
           <span id="comparePrice" class="sale-tag large">
             {% assign compare_price = variant.compare_at_price %}
             {% assign product_price = variant.price %}
+        
             {% include 'price-sale' %}
           </span>
-        </li>
+        </li> <br />
+
+        <li>
         {% endif %}
         {% if settings.product_reviews_enable %}
           <li class="product-meta--review">
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+
           </li>
         {% endif %}
       </ul>
