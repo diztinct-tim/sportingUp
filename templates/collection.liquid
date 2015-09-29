@@ -16,9 +16,9 @@
 <div class="grid grid-border">
 
   {% if has_sidebar %}
-  <aside class="sidebar grid-item large--one-fifth collection-filters" id="collectionFilters">
-    {% include 'collection-sidebar' %}
-  </aside>
+    <aside class="sidebar grid-item large--one-fifth collection-filters" id="collectionFilters">
+      {% include 'collection-sidebar' %}
+    </aside>
   {% endif %}
 
   <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
@@ -87,3 +87,4 @@
 </div>
 
 {% endpaginate %}
+

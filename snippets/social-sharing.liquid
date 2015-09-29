@@ -48,13 +48,6 @@
       </a>
     {% endif %}
 
-    {% if settings.share_fancy %}
-      <a target="_blank" href="http://www.thefancy.com/fancyit?ItemURL={{ permalinkURL }}&amp;Title={{ shareTitle | url_param_escape }}&amp;Category=Other&amp;ImageURL={{ product.featured_image | img_url: '1024x1024' }}" class="share-fancy">
-        <span class="icon icon-fancy"></span>
-        <span class="share-title">{{ 'general.social.share_on_fancy' | t }}</span>
-      </a>
-    {% endif %}
-
   {% endif %}
 
   {% if settings.share_google %}
