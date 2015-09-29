@@ -4850,7 +4850,7 @@ html, body{
     border-right: 10px solid transparent;
     border-top: 10px solid #d50000;
     position: absolute;
-    top: 44px;
+    top: 43px;
     left: calc(50% - 9px);
   }
   header > div.section-header--right > div.form-horizontal > label.small--hide {
@@ -5143,7 +5143,12 @@ html, body{
   .advanced-filter.active-filter a:after:hover{
     background:transparent;
   }
-  
+  .advanced-filter.active-filter a:hover:after{
+    content:"";
+    background-color:transparent;
+    height:0px;
+    width:0px;
+  }
 
 
 
@@ -5533,6 +5538,23 @@ html, body{
     font-size: 16px;
     padding: 13px 0px;
     position:relative;
+    top:0px;
+    left:0px;
+    height:auto;
+  }
+  .mobile-filters #toggleFilters.is-active{
+    border-top:none;
+  }
+  .mobile-filters #toggleFilters.is-active:after{
+    content: "";
+    height: 0px;
+    width: 0px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #D50000;
+    position: absolute;
+    top: 48px;
+    left: calc(50% - 15px); 
   }
   .section-header--right .form-horizontal{
     width:100%;
@@ -5559,6 +5581,12 @@ html, body{
   .wrapper.header-wrap {
     padding-top: 0px;
     margin-top: 0px;
+  }
+  #collectionFilters {
+    width: 100%;
+  }
+  #collectionFilters > div.grid-uniform > .grid-item.small--one-half.medium--one-third{
+    width:100%;
   }
 
 
