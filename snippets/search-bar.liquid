@@ -1,9 +1,21 @@
 <form action="/search" method="get" class="search-bar" role="search">
   <input type="hidden" name="type" value="product">
 
-  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="{{ 'layout.search_bar.placeholder' | t }}">
+  <input id="search-bar-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search">
   <button type="submit" class="search-bar--submit icon-fallback-text">
     <span class="icon icon-search" aria-hidden="true"></span>
     <span class="fallback-text">{{ 'layout.search_bar.submit' | t }}</span>
   </button>
 </form>
+
+<script>
+$(function(){
+	$("#search-bar-input").val("Search");
+    $("#search-bar-input").on("focus", function(){
+       $("#search-bar-input").val("");
+    });
+    $("#search-bar-input").on("blur", function(){
+      $("#search-bar-input").val("Search");
+    });
+})
+</script>
