@@ -88,3 +88,16 @@
 
 {% endpaginate %}
 
+<script>
+  $(function(){
+
+    $(".save-price").each(function(){
+      if( $(this).html().trim() == "Save $ 0.01" ){
+        $(this).closest('.retailPriceGray').hide();
+        
+      }
+    })
+
+  })
+</script>
+

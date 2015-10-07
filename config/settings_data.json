@@ -96,7 +96,7 @@
     "product_reviews_enable": false,
     "product_reviews_star_color": "#e5c649",
     "collection_prod_image_sizes": "large",
-    "collection_sidebar_filters": "tags",
+    "collection_sidebar_filters": "groups",
     "cart_notes_enable": false,
     "ajax_cart_method": "modal",
     "twittercard_handle": "",

@@ -21,8 +21,11 @@
 {% endcomment %}
 {% assign image_size = settings.collection_prod_image_sizes %}
 
-<div class="grid-item {{ grid_item_width }}{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+{% comment %}
+<div class="grid-item item-li {{ grid_item_width }}{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+{% endcomment %}
 
+<div class="grid-item item-li {% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
   <a href="{{ product.url | within: current_collection }}" class="product-grid-item">
     <div class="product-grid-image">
       <div class="product-grid-image--centered">
@@ -40,13 +43,19 @@
         {% include 'price' with product.price %}
       </span>
 
-      {% if on_sale %}
-        <span class="sale-tag medium--right{% if settings.product_reviews_enable %} has-reviews{% endif %}">
+
+     
+      {% if product.compare_at_price > product.price | times: 1.1 | money%}
+
+        <span class="sale-tag medium--right">
+          <span class="retailPriceGray">Retail <strike>{{ product.compare_at_price | money }}</strike>
           {% assign compare_price = product.compare_at_price %}
           {% assign product_price = product.price %}
-          {% include 'price-sale' %}
+          <span class="save-price">{% include 'price-sale' %}</span>
         </span>
+
       {% endif %}
+
     </div>
 
   </a>
