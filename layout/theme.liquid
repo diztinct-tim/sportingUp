@@ -212,8 +212,7 @@
       $("span.menu-text").toggleClass("open-nav");
     })
 
-    $("a.click-me-dropdown").on("click", function(e){
-      // e.stopPropagation();
+    $("a.click-me-dropdown").on("click", function(){
       $("account-dd").toggleClass("open");
     })
 
@@ -222,9 +221,9 @@
       $(this).toggleClass("open-account-menu");
     })
 
-
-
-
+    $("ul.account-dd > li > a").on("click", function(e){
+      e.stopPropagation();
+    })
 
   })
 
