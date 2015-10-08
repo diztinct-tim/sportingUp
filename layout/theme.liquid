@@ -217,14 +217,6 @@
       $("account-dd").toggleClass("open");
     })
 
-    // $(".search-bar").val("Search");
-    // $(".search-bar").on("focus", function(){
-    //   $(".search-bar").val("");
-    // });
-    // $(".search-bar").on("blur", function(){
-    //   $(".search-bar").val("Search");
-    // });
-
     $(".account-drop-down").on("click", function(){
       $(".account-dd").slideToggle("fast");
       $(this).toggleClass("open-account-menu");
@@ -255,7 +247,7 @@
 
           <div class="top-footer cf">
             
-            <div class="footer-box">
+            <div class="footer-box cf">
 
               <div class="left-footer">
                 <img src="{{ 'footer-img_31.png' | asset_url }}">

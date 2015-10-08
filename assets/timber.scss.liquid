@@ -5313,6 +5313,7 @@ html, body{
 
 
 
+
 }
 
 /* Large Devices, Wide Screens */
@@ -5371,7 +5372,24 @@ html, body{
 
   .left-footer, .right-footer{
     height:auto;
+    min-height:none;
   }
+  .top-right-footer{
+    margin-bottom:0px;
+  }
+  div.left-footer{
+    height: 0px;
+    position: relative;
+    padding-bottom: 50%;
+  }
+    div.right-footer{
+    position:relative;
+    height:0px;
+    padding-bottom:50%;
+  }
+
+
+
 
 
 
@@ -5444,6 +5462,18 @@ html, body{
     .right-sub > ul {
       margin-top: 6%;
     }
+    .top-right-footer, .lower-right-footer{
+      min-height:0;
+    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5461,6 +5491,43 @@ html, body{
   .grid-uniform > .item-li{
     width:50%;
   }
+
+
+  .left-footer > h4{
+    margin-top:5%;
+  }
+  .left-footer > p{
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .top-right-footer > div > h3{
+    padding: 9% 0px 1%;
+    margin: 0px;
+  }
+  .top-right-footer > div > p{
+    margin-bottom:3%;
+  }
+  .top-right-footer, .lower-right-footer{
+    min-height:0;
+  }
+  .top-right-footer{
+    padding-bottom:5%;
+  }
+  .lower-right-footer > h4{
+    padding-top:10%;
+  }
+  .lower-right-footer p {
+    padding-bottom: 2%;
+    margin-bottom: 0px;
+  }
+
+
+
+
+
+
+
+
 
 }
 
@@ -5507,12 +5574,33 @@ html, body{
 
 
 /* Small Devices, Tablets */
+@media only screen and (max-width : 840px) {
+
+  .top-right-footer > div > h3{
+    padding-top: 5%;
+  }
+  .lower-right-footer > h4{
+    padding-top:5%;
+  }
+
+
+}
+
+
+
+
+/* Small Devices, Tablets */
 @media only screen and (max-width : 830px) {
 
   
   .top-right-footer > div > p, .lower-right-footer p{
     letter-spacing:-1px;
   }
+  .left-footer > h4, .left-footer > .h4 {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
 
 
 }
