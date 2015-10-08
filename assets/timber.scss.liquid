@@ -5001,6 +5001,7 @@ html, body{
   .prod-page-right {
     width: 300px;
     margin-top: 30px;
+    padding-left:0px;
   }
   .prod-page-left {
     width: calc(100% - 330px);
@@ -5306,6 +5307,9 @@ html, body{
     width: 8px !important;
     height: auto !important;
   }
+  .related-prods > .grid-item.item-li {
+    width: 25%;
+  }
 
 
 
@@ -5519,6 +5523,13 @@ html, body{
   .lower-right-footer p {
     padding-bottom: 2%;
     margin-bottom: 0px;
+  }
+  .item-details{
+    float:none;
+    display:block;
+  }
+  .social-sharing.is-default{
+    float:left;
   }
 
 
@@ -5939,6 +5950,7 @@ html, body{
   }
   .prod-page-right{
     width:100%;
+    padding-left:30px;
   }
   .shop-with-confidence ul li {
     width: 49%;
@@ -6012,7 +6024,7 @@ html, body{
     padding-top:5px;
   }
   .top-right-footer, .lower-right-footer{
-    min-height:195px;
+    min-height:0px;
   }
   .black-box{
     width:280px;
@@ -6023,7 +6035,67 @@ html, body{
   .sign-up, .log-in{
     padding:13px 30px;
   }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third:first-child{
+    border-top:none;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third:last-child{
+    border-bottom:1px solid #ccc;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third{
+    border-top:1px solid #ccc;
+    width: calc(100% + 60px);
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third > h3{
+    padding-top:15px;
+    padding-bottom:5px;
+  }
+  ul.advanced-filters{
+    display:none;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third > h3:after{
+    content: "";
+    position:relative;
+    background:url({{ "black_arrow_03.png" | asset_url }});
+    height:15px;
+    width:23px;
+    background-size:23px 15px;
+    float:right;
+    left:-60px;
+    background-repeat:no-repeat;
+    top:6px;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third > h3.activeFilter{
+    color:#D50000;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third > h3.activeFilter:after{
+    content: "";
+    position:relative;
+    background:url({{ "red-arrow_03.png" | asset_url }});
+    height:15px;
+    width:23px;
+    background-size:23px 15px;
+    float:right;
+    left:-60px;
+    background-repeat:no-repeat;
+    top:6px;
+  }
+  #collectionFilters > .grid-uniform > div.grid-item.small--one-half.medium--one-third:first-child > h3:after{
+    content:"";
+    background:none !important;
+  }
+  .related-prods > .grid-item.item-li {
+    width: 50%;
+  }
 
+
+  div.left-footer {
+    height: auto;
+    padding-bottom: 0px;
+  }
+  div.right-footer {
+    height: auto;
+    padding-bottom: 0px;
+  }
 
 
 
@@ -6130,7 +6202,14 @@ html, body{
 
 
 
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 450px) {
 
+  .breadcrumb--truncate {
+      max-width: 125px;
+  }
+
+}
 
 
 /* Extra Small Devices, Phones */ 
