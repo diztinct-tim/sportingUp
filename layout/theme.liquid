@@ -80,9 +80,12 @@
           <li class="account-drop-down"><span>Account</span>
               <ul class="account-dd">
                 {% if customer %}
-                  <li><a href="{{ customer_logout_link }}">Logout</a></li>
+                  <!-- <li><a href="{{ "Logout" | customer_logout_link }}">Logout</a></li> -->
+                  {{ 'Log out' | customer_logout_link }}
                 {% else %}
-                  <li><a href="{{ customer_login_link }}">Login or Register</a></li>
+                  <!-- <li><a href="{{ customer_login_link }}">Login or Register</a></li> -->
+                  {{ 'Log in' | customer_login_link }}    
+                  {{ 'Create Account' | customer_register_link }}
                 {% endif %} 
                 <!-- <li><a href="">Login or Register</a></li> -->
                 <li><a href="/account/">My Account</a></li>
